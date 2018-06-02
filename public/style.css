@@ -7,15 +7,20 @@ div {
   color: white;
 }
 
+h1, h2{
+  margin: 0;
+}
+
 header {
   color: rgb(255, 255, 255);
   margin: 0;
+  font-size: 1rem;
 }
 
 nav {
   display: flex;
   justify-content: space-between;
-  margin: 1% 5%;
+  margin: 1% 2%;
   padding: 0;
 }
 
@@ -34,8 +39,10 @@ nav {
 
 .detail {
   text-align: justify;
-  padding: 5%;
-  line-height: 1.6;
+  padding: 0% 5%;
+  line-height: 1.8;
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
 }
 
 footer {
@@ -43,7 +50,7 @@ footer {
   color: white;
   display: flex;
   justify-content: space-between;
-  margin: 1% 5%;
+  margin: 1% 2%;
 }
 
 a:link {
