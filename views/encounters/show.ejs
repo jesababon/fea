@@ -1,0 +1,27 @@
+<% include ../partials/header.ejs %>
+
+<h2>Encounter Detail</h2>
+
+
+<div class="detail">
+<b>NAME: <%= encounter.subject_name %></b><br>
+<img src="<%=encounter.image_deceased_url%>" alt=""><br>
+<b>Cause of Death: </b><%= encounter.death_cause %><br>
+<b>Age: </b><%= encounter.subject_age  %><br>
+<b>Encounter Date: </b><%= encounter.injury_date  %><br>
+<b>City: </b><%= encounter.death_city %><br>
+<b>State: </b><%= encounter.death_state  %><br>
+<b>Zip Code: </b><%= encounter.death_zip %><br>
+<b>County: </b><%= encounter.death_county %><br>
+<b>Agencies Involved: </b><%= encounter.agencies_involved %><br>
+<b>Recorded Mental Illness? </b><%= encounter.agency_aware_mental_illness %>.<br>
+<b>Details: </b><%= encounter.event_description %><br>
+<b>Offical Disposition: </b><%= encounter.official_disposition %>.<br>
+<b>News?
+    <a href="<%= encounter.news_url %>" target="blank">
+</b>
+<%= encounter.news_url %>
+    </a>
+<br>
+</div>
+<% include ../partials/footer.ejs %>

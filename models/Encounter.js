@@ -11,6 +11,10 @@ Encounter.all().then(encounters => {
   return encounters;
 });
 
+Encounter.find = (id) => {
+  return db.one(`SELECT * FROM encounters WHERE encounter_id = $1`, [id]);
+};
+
 
 console.log('Encounter.js connected');
 

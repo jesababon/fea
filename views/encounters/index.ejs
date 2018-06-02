@@ -1,17 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Fatal Encounters App</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/public/style.css" />
-    <link rel="shortcut icon" href="/public/images/fea.ico/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="/public/images/fea.ico/favicon.ico" type="image/x-icon">
-</head>
-<body>
 
-Testing
+<% include ../partials/header.ejs %>
 
-</body>
-</html>
+<div class="landing">
+<label>RISK FACTOR BY ZIP CODE</label><br>
+<input type="zipcode" name="zipcodeSearch" id="zipcodeSearch">
+<button type="submit" id="createButton">SEARCH</button>
+</div>
+
+<% include ../partials/footer.ejs %>
