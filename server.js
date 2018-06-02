@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyParser = require('body-parser');
-const Task = require('./models/Encounter');
+const Encounter = require('./models/Encounter');
 const methodOverride = require("method-override");
 const PORT = process.env.PORT || 4567;
 const app = express();
@@ -16,5 +16,23 @@ app.use(bodyParser.urlencoded({
 app.set('view engine', 'ejs');
 
 app.use('/public', express.static("public"));
+
+//HTTP CALLS HERE --->
+//show all tasks
+app.get('/encounters', (request, response) => {
+  Encounter.all()
+    .then(encounters => {
+      response.render('encounters/index', {
+        encounters: encounters
+      });
+    });
+});
+
+
+//HTTP CALLS HERE <---//
+
+app.listen(PORT, () => {
+  console.log(`Express server started on port ${PORT}`);
+});
 
 

@@ -13,8 +13,7 @@ monitor.attach(initOptions, ["query", "error"]);
 
 const pgp = require('pg-promise')(initOptions);
 
-const connection = "postgres://localhost:5432/fea_app";
-
+const connection = "postgres://localhost:5432/fe_app";
 
 const db = pgp(connection);
 
