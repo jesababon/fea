@@ -15,16 +15,18 @@
 
 <body>
     <header>
-        <h1>FATAL ENCOUNTERS</h1><br>
+        <a href="/encounters">
+        <h1>FATAL ENCOUNTERS</h1><br></a>
         <nav>
         <div class="aboutLink">About</div>
         <div class="constitutionLink">The Constitution</div>
         <div class="mirandaRights">Miranda Rights</div>
         <div class="zipCodeDiv">
-            <label>Zip Code</label>
-            <input type="zipcode" name="zipcodeSearch" id="zipcodeSearch">
-            <button type="submit" id="createButton">SEARCH</button>
-</div>
+        <form onsubmit="window.location = 'http://localhost:4567/encounters/' + search.value; return false;">
+        <input placeholder="5 Digit Zip Code" type="search" name="search" class="search"></input>
+        <input type="submit" value="Search">
+        </form>
+        </div>
 
     </nav>
     </header>

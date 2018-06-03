@@ -1,10 +1,14 @@
 
 <% include ../partials/header.ejs %>
 
+
 <div class="landing">
+    <!-- couldn't figure out php, so this will have to to for now -->
+<form onsubmit="window.location = 'http://localhost:4567/encounters/' + search.value; return false;">
 <label>RISK FACTOR BY ZIP CODE</label><br>
-<input type="zipcode" name="zipcodeSearch" id="zipcodeSearch">
-<button type="submit" id="createButton">SEARCH</button>
+<input class="search" placeholder="5 Digit Zip Code" type="search" name="search"></input>
+<input type="submit" value="Search">
+</form>
 </div>
 
 <% include ../partials/footer.ejs %>

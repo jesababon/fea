@@ -23,21 +23,40 @@ app.use('/public', express.static("public"));
 app.get('/encounters', (request, response) => {
   Encounter.all()
     .then(encounters => {
+        encounters.forEach(encounter => {
+          const injuryDate = [];
+          injuryDate.push(moment(encounter.injury_date).format("MMM Do YYYY"));
+        });
       response.render('encounters/index', {
-        encounters: encounters
+        encounters: encounters, injuryDate
       });
     });
 });
 
-//show one encounter
-app.get('/encounters/:id', (request, response) => {
-  const id = request.params.id;
-  Encounter.find(id).then(encounter => {
+//show one encounter by id
+// app.get('/encounters/:id', (request, response) => {
+//   const id = request.params.id;
+//   Encounter.find(id).then(encounter => {
+//     response.render('encounters/show', {
+//       encounter: encounter
+//     });
+//   });
+// });
+
+//show one encounter by zip
+app.get('/encounters/:zip', (request, response) => {
+  const zip = request.params.zip;
+  Encounter.find(zip).then(encounter => {
+    encounters.forEach(encounter => {
+      const injuryDate = [];
+      injuryDate.push(moment(encounter.injury_date).format("MMM Do YYYY"));
+    });
     response.render('encounters/show', {
-      encounter: encounter
+      encounter: encounter, injuryDate
     });
   });
 });
+
 
 
 //HTTP CALLS HERE <---//

@@ -11,8 +11,8 @@ Encounter.all().then(encounters => {
   return encounters;
 });
 
-Encounter.find = (id) => {
-  return db.one(`SELECT * FROM encounters WHERE encounter_id = $1`, [id]);
+Encounter.find = (zip) => {
+  return db.any(`SELECT * FROM encounters WHERE zip_code = $1`, [zip]);
 };
 
 

@@ -54,7 +54,7 @@ footer {
 }
 
 a:link {
-  color: lightcoral;
+  color: white;
   text-decoration: none;
 }
 
@@ -81,4 +81,20 @@ a:active {
   height: 350px;
   z-index: 0;
   left: no-repeat;
+}
+
+::-webkit-input-placeholder {
+  text-align: center;
+}
+
+:-moz-placeholder {
+  text-align: center;
+}
+
+::-moz-placeholder {
+  text-align: center;
+}
+
+:-ms-input-placeholder {
+  text-align: center;
 }

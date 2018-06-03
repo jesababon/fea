@@ -1,12 +1,18 @@
 <% include ../partials/header.ejs %>
 
+<% encounter.forEach(encounter => { %>
+
 <div class="detail">
-<h2 style="text-align:center;">Encounter Detail</h2>
-<b>NAME: <%= encounter.subject_name %></b><br>
-<img src="<%=encounter.image_deceased_url%>" alt=""><br>
+    <center>
+<h2>Encounter Detail</h2>
+<img src="<%=encounter.image_deceased_url%>" alt="" style='max-height: 100px'><br>
+<b><%= encounter.subject_name %></b>
+<br>
+</center>
+
 <b>Cause of Death: </b><%= encounter.death_cause %><br>
 <b>Age: </b><%= encounter.subject_age  %><br>
-<b>Encounter Date: </b><%= encounter.injury_date  %><br>
+<b>Date: </b><%= encounter.injury_date  %><br>
 <b>City: </b><%= encounter.death_city %><br>
 <b>State: </b><%= encounter.death_state  %><br>
 <b>Zip Code: </b><%= encounter.death_zip %><br>
@@ -22,4 +28,7 @@
     </a>
 <br>
 </div>
+
+<% }); %>
+
 <% include ../partials/footer.ejs %>
