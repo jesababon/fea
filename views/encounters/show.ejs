@@ -1,5 +1,7 @@
 <% include ../partials/header.ejs %>
 
+<br>
+
 <% encounter.forEach(encounter => { %>
 
 <div class="detail">
@@ -13,6 +15,10 @@
 <b>Cause of Death: </b><%= encounter.death_cause %><br>
 <b>Age: </b><%= encounter.subject_age  %><br>
 <b>Date: </b><%=encounter.injury_date%><br>
+
+<b>Logitude: </b><%=encounter.longitude%><br>
+<b>Latitude: </b><%=encounter.latitude%><br>
+
 <b>Location: </b>
 <%= encounter.death_city %>, <%= encounter.death_state  %>
 <br>
@@ -39,5 +45,4 @@ Click Here For Detailed Report</a></b><br>
 </div>
 
 <% }); %>
-
 <% include ../partials/footer.ejs %>

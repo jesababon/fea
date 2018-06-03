@@ -58,7 +58,6 @@ app.get('/encounters/:zip', (request, response) => {
 //show one encounter by id
 app.get('/encounters/detail/:id', (request, response) => {
   const id = request.params.id;
-
   Encounter.search(id).then(encounter => {
     response.render('encounters/detail', {
       encounter: encounter
