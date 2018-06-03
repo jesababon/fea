@@ -3,10 +3,6 @@ body {
   text-align: center;
 }
 
-div {
-  color: white;
-}
-
 h1, h2{
   margin: 0;
 }
@@ -24,7 +20,7 @@ nav {
   padding: 0;
 }
 
-.landing {
+/* .landing {
   size: relative;
   background-position: center;
   background-image: url('/public/images/2018data.gif');
@@ -35,6 +31,13 @@ nav {
   padding: 25%;
   font-size: 1.6rem;
   font-weight: bold;
+} */
+
+#mapid {
+  height: 80vh;
+  width: auto;
+  margin: 0;
+  
 }
 
 .detail {
