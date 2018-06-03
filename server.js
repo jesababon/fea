@@ -1,5 +1,5 @@
 const express = require("express");
-const reload = require('./node_modules/reload');
+// const reload = require('./node_modules/reload');
 const bodyParser = require('body-parser');
 const Encounter = require('./models/Encounter');
 const methodOverride = require("method-override");
@@ -27,13 +27,21 @@ app.get('/encounters', (request, response) => {
     });
 });
 
-// api routes
-app.get("/api/encounters", (request, response) => {
-  const page = request.query.page || 1;
-  getEncounters(page).then(encountersFromDB => {
-    response.json(encountersFromDB);
+//json
+app.get("/encounters.json", (request, response) => {
+  Encounter.all().then(encounters => {
+    response.json(encounters);
   });
 });
+
+
+// api routes
+// app.get("/api/encounters", (request, response) => {
+//   const page = request.query.page || 1;
+//   getEncounters(page).then(encountersFromDB => {
+//     response.json(encountersFromDB);
+//   });
+// });
 
 
 //show one encounter by zip
