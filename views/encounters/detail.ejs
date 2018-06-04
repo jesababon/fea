@@ -1,5 +1,5 @@
 <% include ../partials/header.ejs %>
-
+<div class="commentContainer">
 <div class="detail">
 <center>
 <h2>Encounter Detail</h2>
@@ -21,17 +21,8 @@
 <%=encounter.injury_date%>
 <br>
 
-<b>City: </b>
-<%= encounter.death_city %>
-<br>
-<b>State: </b>
-<%= encounter.death_state  %>
-<br>
-<b>Zip Code: </b>
-<%= encounter.death_zip %>
-<br>
-<b>County: </b>
-<%= encounter.death_county %>
+<b>Location: </b>
+<%= encounter.death_city %>, <%= encounter.death_state  %> <%= encounter.zip %>
 <br>
 <b>Agencies Involved: </b>
 <%= encounter.agencies_involved %>
@@ -39,7 +30,7 @@
 <b>Recorded Mental Illness? </b>
 <%= encounter.agency_aware_mental_illness %>.
 <br>
-<b>Details: </b>
+<b>Details: </b><br>
 <%= encounter.event_description %>
 <br>
 <b>Offical Disposition: </b>
@@ -51,6 +42,25 @@
 <%= encounter.news_url %>
 </a>
 <br>
+
+<div class="comments">
+<h5>Submit a comment</h5>
+<div id='submitCommet'>
+    <form action="/comments" method="POST">
+        <label>Name</label>
+        <input type="text" name="commentName" id="commentName" placeholder="Name">
+        <br>
+        <label>Comment</label>
+        <input type="text" name="commentText" id="commentText" placeholder="Comment">
+        <br>
+        <button type="submit" id="commentButton">Comment</button>
+    </form>
+</div>
+
+
+</div>
+
+</div>
 </div>
 
 

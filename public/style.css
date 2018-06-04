@@ -20,7 +20,7 @@ nav {
   padding: 0;
 }
 
-.landing {
+/* .landing {
   size: relative;
   background-position: center;
   background-image: url('/public/images/2018data.gif');
@@ -31,22 +31,27 @@ nav {
   padding: 25%;
   font-size: 1.6rem;
   font-weight: bold;
+} */
+
+.container{
+  display: flex;
 }
 
-#mapid {
-  height: 80vh;
-  width: 80vw;
-  width: auto;
-  margin: 0;
+.commentContainer{
+  position: relative;
+  display: flex;
+  justify-content: space-between;
 }
 
 .detail {
+  
   color: white;
-  text-align: justify;
+  text-align: left;
   padding: 0% 5%;
   line-height: 1.8;
   border-top: 2px solid white;
   border-bottom: 2px solid white;
+  font-size: 2vw;
 }
 
 footer {
@@ -75,9 +80,18 @@ a:active {
   color: darkred;
 }
 
+/* for my map */
+#mapid {
+  height: 80vh;
+  width: 80vw;
+  width: auto;
+  margin: 0;
+}
+
+
 /* for Samuel's Map */
 
-#iframe {
+/* #iframe {
   position: absolute;
   float: left;
   clear: both;
@@ -85,7 +99,7 @@ a:active {
   height: 350px;
   z-index: 0;
   left: no-repeat;
-}
+} */
 
 ::-webkit-input-placeholder {
   text-align: center;

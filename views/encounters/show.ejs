@@ -1,48 +1,32 @@
 <% include ../partials/header.ejs %>
 
-<br>
+<div class="container">
 
 <% encounter.forEach(encounter => { %>
 
 <div class="detail">
     <center>
-<h2>Encounter Detail</h2>
-<img src="<%=encounter.image_deceased_url%>" alt="" style='max-height: 100px'><br>
+<br>
+<img src="<%=encounter.image_deceased_url%>" alt="no image available" style='height: 100px'><br>
 <b><%= encounter.subject_name %></b>
 <br>
 </center>
 
 <b>Cause of Death: </b><%= encounter.death_cause %><br>
-<b>Age: </b><%= encounter.subject_age  %><br>
 <b>Date: </b><%=encounter.injury_date%><br>
-
-<b>Logitude: </b><%=encounter.longitude%><br>
-<b>Latitude: </b><%=encounter.latitude%><br>
-
 <b>Location: </b>
-<%= encounter.death_city %>, <%= encounter.death_state  %>
+<%= encounter.death_city %>, <%= encounter.death_state  %> <%= encounter.zip %>
 <br>
 
 <b>Offical Disposition: </b><%= encounter.official_disposition %>.<br>
 <b>
 <a onclick="window.location ='http://localhost:4567/encounters/detail/' + <%= encounter.encounter_id %> ; return false;">
 
-Click Here For Detailed Report</a></b><br>
-
-<!-- <form onsubmit="window.location = 'http://localhost:4567/encounters/details/' + search.value; return false;">
-    <input placeholder="5 Digit Zip Code" type="search" name="search" class="search"></input>
-    <input type="submit" value="Search">
-</form> -->
-
-
-<b>Media Coverage?</b>
-<a href="<%= encounter.news_url %>">
-    <%= encounter.news_url %>
-</a>
-
-
-<br>
+Click For Detailed Report</a></b><br>
 </div>
 
 <% }); %>
+
+</div>
+
 <% include ../partials/footer.ejs %>
