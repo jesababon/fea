@@ -1,10 +1,14 @@
 const express = require("express");
 // const reload = require('./node_modules/reload');
+const moment = require('moment');
 const bodyParser = require('body-parser');
 const Encounter = require('./models/Encounter');
+const Comment = require('./models/Comment');
+
 const methodOverride = require("method-override");
 const PORT = process.env.PORT || 4567;
 const app = express();
+
 
 app.use(methodOverride('_method'));
 
@@ -47,10 +51,17 @@ app.get("/encounters.json", (request, response) => {
 //show one encounter by zip
 app.get('/encounters/:zip', (request, response) => {
   const zip = request.params.zip;
-  Encounter.find(zip).then(encounter => {
+  const injuryDate = [];
+
+  Encounter.find(zip).then(encounters => {
+    encounters.forEach(encounter => {
+      injuryDate.push(moment(encounter.injury_date).format('MMM Do YYYY'));
+    });
+
 
     response.render('encounters/show', {
-      encounter: encounter
+      encounters: encounters,
+      injuryDate
     });
   });
 });
@@ -59,11 +70,24 @@ app.get('/encounters/:zip', (request, response) => {
 app.get('/encounters/detail/:id', (request, response) => {
   const id = request.params.id;
   Encounter.search(id).then(encounter => {
+    let idDate = moment(encounter.injury_date).format('MMM Do YYYY');
     response.render('encounters/detail', {
-      encounter: encounter
+      encounter: encounter,
+      idDate
     });
   });
 });
+ 
+
+//post a new comment
+app.post('/encounters/detail/:id', (request, response) => {
+  const id = request.params.id;
+  const addComment = request.body;
+  Comment.create(addComment.then(task => {
+    response.redirect(302, '/encounters/detail/');
+  });
+});
+
 
 
 //HTTP CALLS HERE <---//
@@ -71,4 +95,3 @@ app.get('/encounters/detail/:id', (request, response) => {
 app.listen(PORT, () => {
   console.log(`Express server started on port ${PORT}`);
 });
-

@@ -1,5 +1,4 @@
 <% include ../partials/header.ejs %>
-<div class="commentContainer">
 <div class="detail">
 <center>
 <h2>Encounter Detail</h2>
@@ -11,6 +10,7 @@
 <br>
 </center>
 
+
 <b>Cause of Death: </b>
 <%= encounter.death_cause %>
 <br>
@@ -18,7 +18,7 @@
 <%= encounter.subject_age  %>
 <br>
 <b>Date: </b>
-<%=encounter.injury_date%>
+<%=idDate%>
 <br>
 
 <b>Location: </b>
@@ -42,11 +42,11 @@
 <%= encounter.news_url %>
 </a>
 <br>
+</div>
 
-<div class="comments">
 <h5>Submit a comment</h5>
-<div id='submitCommet'>
-    <form action="/comments" method="POST">
+<div id='submitComment'>
+    <form action="/comments/show" method="POST">
         <label>Name</label>
         <input type="text" name="commentName" id="commentName" placeholder="Name">
         <br>
@@ -55,12 +55,6 @@
         <br>
         <button type="submit" id="commentButton">Comment</button>
     </form>
-</div>
-
-
-</div>
-
-</div>
 </div>
 
 

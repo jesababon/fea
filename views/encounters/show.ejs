@@ -1,32 +1,35 @@
 <% include ../partials/header.ejs %>
 
-<div class="container">
 
-<% encounter.forEach(encounter => { %>
+<h1>
+    SUMMARY</h1>
 
-<div class="detail">
-    <center>
-<br>
-<img src="<%=encounter.image_deceased_url%>" alt="no image available" style='height: 100px'><br>
-<b><%= encounter.subject_name %></b>
+
+<% for (var i = 0; i<encounters.length; i++){ %>
+
+<div class="summary">
+    <center><br>
+<img src="<%=encounters[i].image_deceased_url%>" alt="no image available" style='height: 100px'><br>
+<b><%= encounters[i].subject_name %></b>
 <br>
 </center>
 
-<b>Cause of Death: </b><%= encounter.death_cause %><br>
-<b>Date: </b><%=encounter.injury_date%><br>
+<b>Cause of Death: </b><%= encounters[i].death_cause %><br>
+<b>Date: </b><%=injuryDate[i]%>
+    <br>
+
 <b>Location: </b>
-<%= encounter.death_city %>, <%= encounter.death_state  %> <%= encounter.zip %>
+<%= encounters[i].death_city %>, <%= encounters[i].death_state  %> <%= encounters[i].zip %>
 <br>
 
-<b>Offical Disposition: </b><%= encounter.official_disposition %>.<br>
+<b>Offical Disposition: </b><%= encounters[i].official_disposition %>.<br>
 <b>
-<a onclick="window.location ='http://localhost:4567/encounters/detail/' + <%= encounter.encounter_id %> ; return false;">
+<a onclick="window.location ='http://localhost:4567/encounters/detail/' + <%= encounters[i].encounter_id %> ; return false;">
 
 Click For Detailed Report</a></b><br>
 </div>
 
-<% }); %>
+<% }; %>
 
-</div>
 
 <% include ../partials/footer.ejs %>
