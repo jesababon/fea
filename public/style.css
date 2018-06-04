@@ -20,18 +20,6 @@ nav {
   padding: 0;
 }
 
-/* .landing {
-  size: relative;
-  background-position: center;
-  background-image: url('/public/images/2018data.gif');
-  background-repeat: no-repeat;
-  background-size: contain;
-  color: white;
-  text-shadow: -1px -1px 0 #000;
-  padding: 25%;
-  font-size: 1.6rem;
-  font-weight: bold;
-} */
 
 .summary {
   position: relative;
@@ -46,8 +34,9 @@ nav {
 }
 
 
-.detail {
-  position: left;
+.detail{
+
+  position: relative;
   padding-top: 10px;
   color: white;
   text-align: left;
@@ -58,14 +47,16 @@ nav {
   font-size: 2vw;
 }
 
-
-.commentContainer {
-  position: right;
-  justify-content: space-between;
+.commentBoard{
+  height: 50px;
+  color: white;
 }
 
 
-
+.commentContainer {
+  position: relative;
+  justify-content: space-between;
+}
 
 
 footer {
@@ -104,8 +95,8 @@ a:active {
 
 
 /* for Samuel's Map */
-
-/* #iframe {
+/* 
+#iframe {
   position: absolute;
   float: left;
   clear: both;
@@ -113,7 +104,22 @@ a:active {
   height: 350px;
   z-index: 0;
   left: no-repeat;
+}
+
+.landing {
+  size: relative;
+  background-position: center;
+  background-image: url('/public/images/2018data.gif');
+  background-repeat: no-repeat;
+  background-size: contain;
+  color: white;
+  text-shadow: -1px -1px 0 #000;
+  padding: 25%;
+  font-size: 1.6rem;
+  font-weight: bold;
 } */
+
+
 
 ::-webkit-input-placeholder {
   text-align: center;

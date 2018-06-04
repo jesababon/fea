@@ -1,10 +1,5 @@
 <% include ../partials/header.ejs %>
 
-
-<h1>
-    SUMMARY</h1>
-
-
 <% for (var i = 0; i<encounters.length; i++){ %>
 
 <div class="summary">
@@ -19,12 +14,12 @@
     <br>
 
 <b>Location: </b>
-<%= encounters[i].death_city %>, <%= encounters[i].death_state  %> <%= encounters[i].zip %>
+<%= encounters[i].death_city %>, <%= encounters[i].death_state  %> <%= encounters[i].zip_code %>
 <br>
 
 <b>Offical Disposition: </b><%= encounters[i].official_disposition %>.<br>
 <b>
-<a onclick="window.location ='http://localhost:4567/encounters/detail/' + <%= encounters[i].encounter_id %> ; return false;">
+<a onclick="window.location ='http://localhost:4567/encounters/detail/' + <%= encounters[i].encounter_id %> ; return false;" style="text-align: right">
 
 Click For Detailed Report</a></b><br>
 </div>

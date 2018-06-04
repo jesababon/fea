@@ -35,19 +35,15 @@ getEncounters = () => { return fetch('/encounters.json').then(response => respon
             geojson = {
                 lat: element.latitude,
                 lon: element.longitude
-            }
-            //  console.log(geojson)
-            
-            // add marker to map 
+            }            
             L.marker([geojson.lat, geojson.lon]).addTo(mymap);
 
-            // geojson.forEach(function(marker) { 
-            //     console.log(marker) 
-            // });
-
-            // return geojson;
-        })
-    })
+            geojson.forEach(function(marker) { 
+                console.log(marker) 
+            });
+            return geojson;
+        });
+    });
 
 
 

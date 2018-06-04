@@ -1,0 +1,10 @@
+<h5>Update Comment</h5>
+
+<div id='edit'>
+    <form class="editForm" method="POST" action="/comments/edit/<%= comment.comment_id %>?_method=PUT">
+
+        <input type="text" name="comment_text" id="commentText" placeholder="Comment">
+        <button type="submit">UPDATE</button>
+    </form>
+
+</div>
