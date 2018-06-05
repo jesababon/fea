@@ -37,7 +37,7 @@ app.get('/encounters/comments', (request, response) => {
 app.post('/encounters/comments/', (request, response) => {
   const addComment = request.body;
   Comment.create(addComment).then(comment => {
-    response.render('/encounters/comments');
+    response.redirect(302, 'back'); //load same page
   });
 });
 
@@ -45,24 +45,55 @@ app.post('/encounters/comments/', (request, response) => {
 app.get('/encounters/comments/one/:id/', (request, response) => {
   const id = request.params.id;
   Comment.findComment(id).then(comment => {
-    return comment[0]; })
+      return comment[0];
+    })
     .then(data => {
-    let comment = data.comment_text;    
-    response.render('encounters/one'
-    , {comment:comment}
-  );
-  });
+      let comment = data.comment_text;
+      response.render('encounters/one', {
+        comment: comment
+      });
+    });
 });
 
-//update a comment by id
-app.put('/encounters/comments/:id', (request, response) => {
-  const id = request.comment_id;
-  const updateComment = request.body;
-  updateComment.comment_id = id;
-  Comment.update(updateComment).then(updateComment => {
-    response.send('/encounters/comments');
-  });
+//edit a  comment
+app.get('/encounters/comments/one/edit/:id', (request, response) => {
+  const id = request.params.id;
+  Comment.findComment(id).then(comment => {
+      return comment[0];
+    })
+    .then(data => {
+      let comment = data.comment_text;
+      response.render(`encounters/one/edit`, {
+        comment: comment
+      });
+    });
 });
+
+
+//update a comment by id
+app.put('/encounters/comments/one/:id', (request, response) => {
+        var id = Number(request.params.id);
+        console.log(id);
+        
+        var updatedComment = request.body.comment_text;
+        console.log(updatedComment);
+        
+      Comment.update(id, updatedComment);
+      });
+
+
+      // const id = Number(request.params.id);
+      // const updatedComment = request.body;
+      // updatedComment.comment_id = id;
+
+//delete a comment by id
+app.delete('/encounters/comments/one/:id', (request, response) => {
+  const id = request.params.id;
+  Comment.delete(id).then(() => {
+      response.redirect(302, `back`);
+    });
+});
+
 
 
 //json

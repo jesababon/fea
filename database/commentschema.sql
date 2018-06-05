@@ -1,4 +1,4 @@
-\c fe_app
+-- \c fe_app
 
 CREATE TABLE comments (
     comment_id SERIAL PRIMARY KEY,

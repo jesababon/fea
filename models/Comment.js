@@ -21,9 +21,16 @@ Comment.create = (comment) => {
   VALUES ($1) RETURNING *`, [comment.comment_text]);
 };
 
-Comment.update = commentUpdate => {
-  return db.none(`UPDATE comments SET comment_text = $1 WHERE comment_id = $2`, [commentUpdate.comment_text, commentUpdate.comment_id]);
+Comment.update = (id, updatedComment) => {
+  return db.none(`UPDATE comments SET comment_text=$1 WHERE comment_id=$2`, [updatedComment.comment_text, updatedComment.comment_id]);
+
 };
+
+//delete function
+Comment.delete = id => {
+  return db.result(`DELETE FROM comments WHERE comment_id=  $1`, [id]);
+};
+
 
 
 console.log('Comment.js connected');
