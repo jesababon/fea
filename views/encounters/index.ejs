@@ -10,7 +10,7 @@
 </form>
 </div> -->
 
-<!-- <div id="mapid">MAP HERE</div> -->
+<div id="mapid">MAP HERE</div>
 
 <script>
 
@@ -35,34 +35,25 @@ getEncounters = () => { return fetch('/encounters.json').then(response => respon
             geojson = {
                 lat: element.latitude,
                 lon: element.longitude
-            }            
-            L.marker([geojson.lat, geojson.lon]).addTo(mymap);
+            }
+            // console.log(geojson)
+            L.circle([geojson.lat, geojson.lon], 0, {
+                color: 'red',
+                fillColor: '#f03',
+                fillOpacity: 0.5
+            }).addTo(mymap).bindPopup("I am a circle.");
 
-            geojson.forEach(function(marker) { 
-                console.log(marker) 
-            });
             return geojson;
         });
     });
 
+    var popup = L.popup();
+
+function onMapClick(e) {getEncounters().then(encounters => { encounters.forEach(element => { let marker = L.marker([element.latitude, element.longitude]).addTo(mymap);
+marker.bindPopup(`<b>Name: ${element.subject_name}</b>`);})})};
 
 
-    //  L.marker([37.576990, -98.617800]).addTo(mymap)
-    //  .bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
-
-    // L.circle([37.576990, -98.617800], 0, {
-    //     color: 'red',
-    //     fillColor: '#f03',
-    //     fillOpacity: 0.5
-    // }).addTo(mymap).bindPopup("I am a circle.");
-
-    // var popup = L.popup();
-
-// function onMapClick(e) {getEncounters().then(encounters => { encounters.forEach(element => { let marker = L.marker([element.latitude, element.longitude]).addTo(mymap);
-// marker.bindPopup(`<b>Name: ${element.subject_name}</b>`);})})};
-
-
-    // mymap.on('click', onMapClick);
+    mymap.on('click', onMapClick);
 
 
 // document.querySelector(".deathButton").addEventListener('click', () => { getEncounters().then(encounters => { encounters.forEach(element

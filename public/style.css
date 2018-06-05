@@ -98,17 +98,17 @@ a:active {
 }
 
 /* for my map */
-/* #mapid {
+#mapid {
   height: 80vh;
   width: 80vw;
   width: auto;
   margin: 0;
-} */
+}
 
 
 /* for Samuel's Map */
 
-#iframe {
+/* #iframe {
   position: absolute;
   float: left;
   clear: both;
@@ -129,7 +129,7 @@ a:active {
   padding: 25%;
   font-size: 1.6rem;
   font-weight: bold;
-}
+} */
 
 
 
