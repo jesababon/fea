@@ -32,31 +32,34 @@ app.get('/encounters/comments', (request, response) => {
   });
 });
 
-//get a comment by id
-app.get('/encounters/comments/:id', (request, response) => {
-  const id = Number(request.params.id);
-  Comment.find(id).then(comment => {
-    response.render('/onecomment', {
-      comment: comment
-    });
-  });
-});
 
 //create a comment by id
 app.post('/encounters/comments/', (request, response) => {
   const addComment = request.body;
   Comment.create(addComment).then(comment => {
-    response.send('/encounters/comments');
+    response.render('/encounters/comments');
   });
 });
 
+//get a comment by id
+app.get('/encounters/comments/one/:id/', (request, response) => {
+  const id = request.params.id;
+  Comment.findComment(id).then(comment => {
+    return comment[0]; })
+    .then(data => {
+    let comment = data.comment_text;    
+    response.render('encounters/one'
+    , {comment:comment}
+  );
+  });
+});
 
 //update a comment by id
 app.put('/encounters/comments/:id', (request, response) => {
   const id = request.comment_id;
   const updateComment = request.body;
   updateComment.comment_id = id;
-  Comment.create(updateComment).then(updateComment => {
+  Comment.update(updateComment).then(updateComment => {
     response.send('/encounters/comments');
   });
 });
@@ -68,17 +71,6 @@ app.get("/encounters.json", (request, response) => {
     response.json(encounters);
   });
 });
-
-
-// api routes
-// app.get("/api/encounters", (request, response) => {
-//   const page = request.query.page || 1;
-//   getEncounters(page).then(encountersFromDB => {
-//     response.json(encountersFromDB);
-//   });
-// });
-
-
 
 // show all encounters. test last as there is a lot of data.
 app.get('/encounters', (request, response) => {

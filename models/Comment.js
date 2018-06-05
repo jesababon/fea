@@ -12,7 +12,7 @@ Comment.all = function () {
   
 // });
 
-Comment.find = (id) => {
+Comment.findComment = (id) => {
   return db.any(`SELECT * FROM comments WHERE comment_id = $1`, [id]);
 };
 
