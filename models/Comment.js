@@ -21,8 +21,8 @@ Comment.create = (comment) => {
   VALUES ($1) RETURNING *`, [comment.comment_text]);
 };
 
-Comment.update = (id, updatedComment) => {
-  return db.none(`UPDATE comments SET comment_text=$1 WHERE comment_id=$2`, [updatedComment.comment_text, updatedComment.comment_id]);
+Comment.update = (updatedComment) => {
+  return db.none(`UPDATE comments SET comment_text= $1 WHERE comment_id = $2`, [updatedComment.comment_text, updatedComment.comment_id]);
 
 };
 

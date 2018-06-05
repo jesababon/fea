@@ -72,19 +72,18 @@ app.get('/encounters/comments/one/edit/:id', (request, response) => {
 
 //update a comment by id
 app.put('/encounters/comments/one/:id', (request, response) => {
-        var id = Number(request.params.id);
+        const id = Number(request.params.id);
         console.log(id);
         
-        var updatedComment = request.body.comment_text;
+        const updatedComment = request.body;
         console.log(updatedComment);
-        
-      Comment.update(id, updatedComment);
+        updatedComment.comment_id = id;
+      Comment.update(updatedComment)
+      .then(() =>{
+response.redirect(302, 'back');
+      });
       });
 
-
-      // const id = Number(request.params.id);
-      // const updatedComment = request.body;
-      // updatedComment.comment_id = id;
 
 //delete a comment by id
 app.delete('/encounters/comments/one/:id', (request, response) => {
