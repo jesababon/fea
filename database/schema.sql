@@ -4,8 +4,8 @@
 
 -- \c fe_app
 
--- DROP TABLE IF EXISTS encounters;
--- DROP TABLE IF EXISTS population;
+DROP TABLE IF EXISTS encounters;
+DROP TABLE IF EXISTS population;
 
 CREATE TABLE population (
     population_id SERIAL PRIMARY KEY,

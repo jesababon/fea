@@ -149,6 +149,32 @@ a:active {
   text-align: center;
 }
 
+button {
+  background-color: black;
+  /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 2vw;
+}
+
+.submitButton {
+  background-color: black;
+  /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 2vw;
+}
+
+
+
 /* The Modal (background) */
 
 .modal {
@@ -156,7 +182,7 @@ a:active {
   /* Hidden by default */
   position: fixed;
   /* Stay in place */
-  z-index: 1;
+  z-index: 1200;
   /* Sit on top */
   left: 0;
   top: 0;
@@ -175,12 +201,15 @@ a:active {
 /* Modal Content/Box */
 
 .modal-content {
+  color: black;
   background-color: #fefefe;
   margin: 15% auto;
   /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
+  font-size: 2vw;
+
   /* Could be more or less, depending on screen size */
 }
 

@@ -22,38 +22,25 @@
 </head>
 
 <body>
-    <header>
-        <a href="/encounters">
-            <h1>FATAL ENCOUNTERS</h1>
-            <br>
-        </a>
-        <nav>
-            <button class="aboutLink">About</button>
-            <button class="constitutionLink">The Constitution</button>
-            <button class="mirandaRights">Miranda Rights</button>
-            <div class="zipCodeDiv">
-                <form onsubmit="window.location = 'http://localhost:4567/encounters/' + search.value; return false;">
-                    <input placeholder="5 Digit Zip Code" type="search" name="search" class="search"></input>
-                    <input type="submit" value="Search">
-                </form>
-            </div>
+<header>
+<a href="/encounters">
+    <h1>FATAL ENCOUNTERS</h1>
+    <br>
+</a>
 
-        </nav>
-    </header>
+<nav>
+<!-- About Modal -->
 
-
-<!-- Modal -->
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+<button type="button" data-toggle="modal" data-target="#aboutModalCenter">
     About
 </button>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+
+<div class="modal fade" id="aboutModalCenter" tabindex="-1" role="dialog" aria-labelledby="aboutModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">About</h5>
+                <h5 class="modal-title" id="aboutModalLongTitle">About</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -66,11 +53,93 @@ With love, Jes.</p>
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="about btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
 </div>
 
+<!-- Consitution Modal -->
+
+<button type="button" data-toggle="modal" data-target="#constitutionModal">
+    The Constitution
+</button>
 
 
+<div class="modal fade" id="constitutionModal" tabindex="-1" role="dialog" aria-labelledby="constitutionModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="constitutionModalLongTitle">The Constitution</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div>
+            <% include ../encounters/constitution.ejs %>
+</div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="constitution btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Miranda Rights -->
+
+<button type="button" data-toggle="modal" data-target="#mirandaModalCenter">
+    Miranda Rights
+</button>
+
+
+<div class="modal fade" id="mirandaModalCenter" tabindex="-1" role="dialog" aria-labelledby="mirandaModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="mirandaModalLongTitle">Miranda Rights</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+          <img src="/public/images/mirandawarninginfographic.png" style="width: 95%" 
+          alt="
+            The following is a minimal Miranda warning, as outlined in the Miranda v Arizona case.
+            You have the right to remain silent.
+            Anything you say can and will be used against you in a court of law. 
+            You have the right to speak to an attorney, and to have an attorney present during any questioning. 
+            If you cannot afford a lawyer, one will be provided for you at government expense.
+
+            The following is a much more verbose Miranda warning, designed to cover all bases that a detainee might encounter while in
+            police custody. A detainee may be asked to sign a statement acknowledging the following. 
+            You have the right to remain silent and refuse to answer questions. Do you understand? 
+            Anything you do say may be used against you in a court of law. Do you understand? 
+            You have the right to consult an attorney before speaking to the police and to have an attorney present during
+            questioning now or in the future. Do you understand? 
+            If you cannot afford an attorney, one will be appointed for you before any questioning if you wish. Do you understand? 
+            If you decide to answer questions now without an attorney present you will still have the right to stop answering at any time until you talk to an attorney. Do you understand? 
+            Knowing and understanding your rights as I have explained them to you, are you willing to answer my questions without an attorney present?
+            ">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="miranda btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="zipCodeDiv">
+    <form onsubmit="window.location = 'http://localhost:4567/encounters/' + search.value; return false;">
+        <input placeholder="5 Digit Zip Code" type="search" name="search" class="search"></input>
+        <input class="submitButton" type="submit" value="Search">
+    </form>
+</div>
+
+
+</nav>
+
+</header>
