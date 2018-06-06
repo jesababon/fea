@@ -26,7 +26,7 @@ app.use('/public', express.static("public"));
 //get all comments
 app.get('/encounters/comments', (request, response) => {
   Comment.all().then(comments => {
-    response.render('encounters/comments', {
+    response.render('/comments', {
       comments: comments
     });
   });

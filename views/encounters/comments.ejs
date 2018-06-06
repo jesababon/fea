@@ -1,27 +1,26 @@
 
+<div class="commentBoard">
 
-
-<% comments.forEach(comment => { %>
+<% include ../encounters/new.ejs %>
+</div>
 
 <div class="commentBoard">
 
-    <%= comment.comment_text %>
+<br>
+<% comments.forEach(comment => { %>
 
-    <br>
-<div id='edit'>
-<form class="editForm" method="POST" action="/encounters/comments/one/<%= comment.comment_id %>?_method=PUT">
-        <input type="text" name="comment_text" id="commentText" placeholder="Update comment?">
+<h3>
+    <%= comment.comment_text %>
+</h3>
+
+
+<form method="POST" action="/encounters/comments/one/<%= comment.comment_id %>?_method=PUT">
+        <input type="text" name="comment_text" id="commentText" value='<%=comment.comment_text%>' style="width: 300px">
         <button type="submit">UPDATE</button>
-    </form>
-</div>
-<div id ="delete">
+</form>
 <form method="POST" action="/encounters/comments/one/<%=comment.comment_id %>?_method=DELETE">
     <button type="submit">DELETE</button>
 </form>
-
-</div>
-
-</div>
 
 </div>
 

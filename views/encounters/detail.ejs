@@ -2,7 +2,7 @@
 <aside class="detail">
 <center>
 <h2>Encounter Detail</h2>
-<img src="<%=encounter.image_deceased_url%>" alt="" style='max-height: 100px'>
+<img src="<%=encounter.image_deceased_url%>" alt="" style='height: 100px'>
 <br>
 <b>
 <%= encounter.subject_name %>
@@ -37,14 +37,13 @@
 <%= encounter.official_disposition %>.
 <br>
 <b>News?
-<a href="<%= encounter.news_url %>" target="blank">
+<a class="links" href="<%= encounter.news_url %>" target="blank">
 </b>
 <%= encounter.news_url %>
 </a>
 <br>
 </div>
 
-<% include ../encounters/new.ejs %>
 
 <% include ../encounters/comments.ejs %>
 

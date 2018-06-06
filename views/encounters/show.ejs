@@ -4,7 +4,7 @@
 
 <div class="summary">
     <center><br>
-<img src="<%=encounters[i].image_deceased_url%>" alt="no image available" style='height: 100px'><br>
+<img src="<%=encounters[i].image_deceased_url%>" alt="" style='height: 100px'><br>
 <b><%= encounters[i].subject_name %></b>
 <br>
 </center>
@@ -19,7 +19,7 @@
 
 <b>Offical Disposition: </b><%= encounters[i].official_disposition %>.<br>
 <b>
-<a onclick="window.location ='http://localhost:4567/encounters/detail/' + <%= encounters[i].encounter_id %> ; return false;" style="text-align: right">
+<a class="links" onclick="window.location ='http://localhost:4567/encounters/detail/' + <%= encounters[i].encounter_id %> ; return false;">
 
 Click For Detailed Report</a></b><br>
 </div>
