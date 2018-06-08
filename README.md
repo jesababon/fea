@@ -1,5 +1,9 @@
 •	Fatal Encounters App Description
-o	The Fatal Encounters App (FEA) will allow users to determine their likelihood of encountering police brutality by zip code. The app uses the Fatal Encounters Database (sourced from fatalencounter.org) to provide a visual representation of the police activity related fatalities for that location.
+o	The Fatal Encounters App (FEA) will allow users to determine their likelihood of encountering police brutality by zip code. The app uses the Fatal Encounters Database (sourced from fatalencounters.org) to provide a visual representation of the police activity related fatalities for that location.
+
+Technologies: HTML, CSS, Javascript, Express.js
+
+Video Demo: https://www.youtube.com/watch?v=5tR2VTg9v6Y&t=18s
 
 
 1.	Home Page is a Landing Page + Zip Code Search
