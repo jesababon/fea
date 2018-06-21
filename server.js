@@ -9,7 +9,6 @@ const methodOverride = require("method-override");
 const PORT = process.env.PORT || 4567;
 const app = express();
 
-app.use(express.static(__dirname + '/encounters'));
 
 app.use(methodOverride('_method'));
 
@@ -104,7 +103,7 @@ app.get("/encounters.json", (request, response) => {
 });
 
 // show all encounters. test last as there is a lot of data.
-app.get('/encounters', (request, response) => {
+app.get('/', (request, response) => {
   Encounter.all()
     .then(encounters => {
       response.render('encounters/index', {
@@ -114,7 +113,7 @@ app.get('/encounters', (request, response) => {
 });
 
 //show one encounter by zip
-app.get('/encounters/:zip', (request, response) => {
+app.get('/:zip', (request, response) => {
   const zip = request.params.zip;
   const injuryDate = [];
 
